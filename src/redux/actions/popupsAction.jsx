@@ -5,6 +5,7 @@ import {
   TASK_CARD_DETAIL,
   TASK_CREATE,
   CLEAR_ALL_POPUP,
+  ALERT_POPUP,
 } from '../type';
 
 export const logoutPopup = payload => {
@@ -40,6 +41,12 @@ export const taskCreate = payload => {
 export const clearAllPopup = payload => {
   return {
     type: CLEAR_ALL_POPUP,
+    payload: payload,
+  };
+};
+export const alertPopup = payload => {
+  return {
+    type: ALERT_POPUP,
     payload: payload,
   };
 };

@@ -309,18 +309,30 @@
       padding: 0.5rem 0rem;
       padding-left: 0.5rem;
     }
-    button {
-      margin: 1rem 0;
-      margin-bottom: 2rem;
-      font-size: 14px;
-      width: 70px;
+    .actionBottom {
+      display: flex;
+      align-items: center;
+      button {
+        margin: 1rem 0;
+        margin-bottom: 2rem;
+        font-size: 14px;
+        width: 70px;
 
-      font-family: $--gilroyBlack;
-      background-image: linear-gradient(
-        to right,
-        $--default-color,
-        $--opacity-primary-color
-      );
+        font-family: $--gilroyBlack;
+        background-image: linear-gradient(
+          to right,
+          $--default-color,
+          $--opacity-primary-color
+        );
+      }
+      h1 {
+        font-size: 13px;
+        margin-left: 1rem;
+      }
+      .successMessage {
+        color: green;
+        margin-bottom: 1rem;
+      }
     }
   }
 }

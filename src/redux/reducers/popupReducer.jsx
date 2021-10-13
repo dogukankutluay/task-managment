@@ -5,6 +5,7 @@ import {
   TASK_CARD_DETAIL,
   TASK_CREATE,
   CLEAR_ALL_POPUP,
+  ALERT_POPUP,
 } from './../type';
 const initialState = {
   logout: false,
@@ -12,6 +13,7 @@ const initialState = {
   taskCardUserProfile: { popup: false, items: {} },
   taskCardDetail: { popup: false, id: '' },
   taskCreate: false,
+  alert: { type: '', text: { tr: '', en: '' }, show: false },
 };
 const popupReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -39,6 +41,11 @@ const popupReducer = (state = initialState, action) => {
       return {
         ...state,
         taskCreate: action.payload,
+      };
+    case ALERT_POPUP:
+      return {
+        ...state,
+        alert: action.payload,
       };
     case CLEAR_ALL_POPUP:
       return {

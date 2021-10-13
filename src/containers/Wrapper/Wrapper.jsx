@@ -10,6 +10,7 @@ import {
   taskCardUserProfile,
   taskCardDetail,
   taskCreate,
+  alertPopup,
 } from '../../redux/actions/popupsAction';
 import {
   DefaultPopup,
@@ -21,7 +22,7 @@ import { logout } from './../../redux/actions/authAction';
 import { controlPathname } from '../../helpers/controllers';
 import WrapperHeader from './WrapperHeader';
 import { Sidebar, FakeSideBar } from '../../components';
-
+import { DefaultAlert } from '../../components/Alerts/Alerts';
 const Wrapper = () => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const Wrapper = () => {
   const languageState = useSelector(state => state.language.language);
 
   const logOutPopupShow = useSelector(state => state.popups.logout);
+  const alertPopupState = useSelector(state => state.popups.alert);
   const sideBarHamburger = useSelector(state => state.popups.sidebarHamburger);
   const taskCardUserProfileData = useSelector(
     state => state.popups.taskCardUserProfile
@@ -49,9 +51,11 @@ const Wrapper = () => {
   };
   useEffect(() => {
     dispatch(getAllUsers());
+    dispatch(alertPopup({ text: '', show: false, type: '' }));
   }, [dispatch]);
   return (
     <>
+      {alertPopupState?.show ? <DefaultAlert props={alertPopupState} /> : null}
       {taskCreateState ? (
         <TaskCreatePopup
           popupStyles={takCreatePopupStyles}

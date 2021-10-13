@@ -23,6 +23,7 @@ import { createTask } from '../../redux/actions/createTaskAction';
 import { TaskDepartmentDatas } from '../../collections/collections';
 import dummyfoto1 from '../../assets/img/dumy-1.jpg';
 import dummyfoto2 from '../../assets/img/dumy-2.jpg';
+import { alertPopup } from '../../redux/actions/popupsAction';
 const PopupWrapper = props => {
   return (
     <>
@@ -256,14 +257,35 @@ const TaskCardDetail = ({ popupStyles, popupCloseClick }) => {
 const TaskCreatePopup = ({ popupStyles, popupCloseClick }) => {
   const dispatch = useDispatch();
   const languageState = useSelector(state => state.language.language);
-
   const [createTaskState, setCreateTaskState] = useState({
     title: '',
     description: '',
     assignedDepartment: 0,
   });
+  const errorAlertInitialState = {
+    type: 'error',
+    text: {
+      tr: 'Lütfen boş alan bırakmayınız.',
+      en: 'Please do not leave any blank spaces.',
+    },
+    show: true,
+  };
   const _onSubmit = () => {
-    dispatch(createTask(createTaskState));
+    if (createTaskState.assignedDepartment === 0) {
+      dispatch(alertPopup(errorAlertInitialState));
+    } else {
+      dispatch(
+        createTask(
+          createTaskState,
+          alertPopup,
+          errorAlertInitialState,
+          popupCloseClick
+        )
+      );
+    }
+    setTimeout(() => {
+      dispatch(alertPopup({ type: '', text: { tr: '', en: '' }, show: false }));
+    }, 2000);
   };
 
   return (
@@ -300,10 +322,12 @@ const TaskCreatePopup = ({ popupStyles, popupCloseClick }) => {
               title={PopupsL.taskCreate.department.text[languageState]}
               datas={TaskDepartmentDatas}
             />
-            <DefaultButton
-              text={PopupsL.taskCreate.button[languageState]}
-              onClick={_onSubmit}
-            />
+            <div className={style.actionBottom}>
+              <DefaultButton
+                text={PopupsL.taskCreate.button[languageState]}
+                onClick={_onSubmit}
+              />
+            </div>
           </div>
         </div>
       </PopupWrapper>

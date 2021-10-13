@@ -1,0 +1,23 @@
+@import '../../assets/style/variables.module.scss';
+
+.alertsErrorWrapper,
+.alertsSuccessWrapper {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  z-index: 1002;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1 {
+    color: white;
+    font-weight: 100;
+  }
+}
+.alertsErrorWrapper {
+  background-color: $--alert-error-background-color;
+}
+.alertsSuccessWrapper {
+  background-color: $--alert-success-background-color;
+}

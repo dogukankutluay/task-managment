@@ -115,6 +115,14 @@ export const PopupsL = {
       tr: 'Oluştur',
       en: 'Create',
     },
+    errorEmpty: {
+      tr: 'Lütfen boş alan bırakmayınız.',
+      en: 'Please do not leave any blank spaces.',
+    },
+    succcessMessage: {
+      tr: 'Kayıt Başarılı',
+      en: 'Registration Successful',
+    },
   },
   logout: {
     button: {
