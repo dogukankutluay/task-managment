@@ -14,7 +14,7 @@ function MyDepartmantTasks() {
   }, [dispatch]);
   return (
     <>
-      {myDepartmentTasksState.length ? (
+      {myDepartmentTasksState?.length ? (
         <div className={style.myDepartmentTasks}>
           <div className={style.myDepartmentTasksWrapper}>
             {myDepartmentTasksState?.map(task => {

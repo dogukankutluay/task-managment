@@ -4,10 +4,12 @@ import {
   ERROR_LOGIN,
   CLEAR_AUTH,
   USER_LOGOUT,
+  GET_ME,
 } from '../type';
 import { history } from '../../';
 
 import { ApiConfig, BaseUrl } from '../../constants/ApiConfig';
+import { getToken } from '../getToken';
 export const loginUser =
   ({ email, setLoading }) =>
   dispatch => {
@@ -28,9 +30,26 @@ export const loginUser =
         dispatch(errorLogin(err.response?.data.message));
       });
   };
+export const getMe = () => dispatch => {
+  axios
+    .get(`${BaseUrl}${ApiConfig.user.getMe}`, getToken())
+    .then(res => {
+      const data = res.data.payload;
+      dispatch(setCurrentMe(data));
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
 export const setCurrentUser = decoded => {
   return {
     type: SET_CURRENT_USER,
+    payload: decoded,
+  };
+};
+export const setCurrentMe = decoded => {
+  return {
+    type: GET_ME,
     payload: decoded,
   };
 };

@@ -3,6 +3,7 @@ export const ApiConfig = {
   user: {
     login: '/api/auth/login',
     getAllUsers: '/api/auth/all-users',
+    getMe: '/api/auth/me',
   },
   task: {
     getAllTasks: '/api/task',

@@ -115,9 +115,8 @@ const TaskCardUserProfilePopUp = ({ popupCloseClick, popupStyles }) => {
   );
 };
 const TaskCardDetail = ({ popupStyles, popupCloseClick }) => {
-  let temporaryImage2 =
-    'https://images.unsplash.com/photo-1544005313-94ddf0286df2';
   const dispatch = useDispatch();
+
   const languageState = useSelector(state => state.language.language);
 
   const taskId = useSelector(state => state.popups.taskCardDetail.id);
@@ -134,6 +133,10 @@ const TaskCardDetail = ({ popupStyles, popupCloseClick }) => {
 
   const _deleteTask = () => dispatch(deleteTask(taskId, popupCloseClick));
   const _editTask = () => dispatch(editTask(taskId, updateTask));
+  let temporaryImage2 =
+    'https://images.unsplash.com/photo-1544005313-94ddf0286df2';
+  let temporaryImage1 =
+    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e';
   useEffect(() => {
     dispatch(getOneTask(taskId, setUpdateTask));
   }, [dispatch, taskId]);
@@ -178,9 +181,21 @@ const TaskCardDetail = ({ popupStyles, popupCloseClick }) => {
                     <h1>{PopupsL.taskCardDetail.logs[languageState]}</h1>
                     <div className={style.logsWrapper}>
                       {task.logs.map((log, index) => {
+                        console.log(log);
                         return (
                           <div className={style.logsBox} key={index}>
-                            <img src={temporaryImage2} alt="" />
+                            <img
+                              src={
+                                log.userName === 'Mary Glenn'
+                                  ? temporaryImage2
+                                  : temporaryImage1
+                              }
+                              alt={
+                                log.userName === 'Mary Glenn'
+                                  ? temporaryImage2
+                                  : temporaryImage1
+                              }
+                            />
                             <div className={style.logsInfos}>
                               <div className={style.infoHead}>
                                 <h2>{log.userName}</h2>

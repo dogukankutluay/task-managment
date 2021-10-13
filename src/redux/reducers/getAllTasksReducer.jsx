@@ -10,6 +10,7 @@ const initalState = {
   loading: true,
   data: [],
   searchDatas: [],
+  constData: [],
 };
 
 const getAllTasksReducer = (state = initalState, action) => {

@@ -2,14 +2,8 @@ import { Login, Wrapper } from '../containers';
 
 const routes = [
   {
-    name: 'home',
-    path: '/',
-    exact: true,
-    component: Wrapper,
-  },
-  {
     name: 'allTasks',
-    path: '/all-tasks',
+    path: '/',
     exact: true,
     component: Wrapper,
   },
@@ -30,12 +24,6 @@ const routes = [
     path: '/login',
     exact: true,
     component: Login,
-  },
-  {
-    name: 'settings',
-    path: '/settings',
-    exact: true,
-    component: Wrapper,
   },
 ];
 

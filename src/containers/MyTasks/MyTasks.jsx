@@ -12,7 +12,7 @@ function MyTasks() {
   }, [dispatch]);
   return (
     <>
-      {myAllTasksState.length ? (
+      {myAllTasksState?.length ? (
         <div className={style.myAlllTasks}>
           <div className={style.myAllTasksWrapper}>
             {myAllTasksState?.map(task => {

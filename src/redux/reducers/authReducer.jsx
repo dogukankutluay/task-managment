@@ -3,12 +3,14 @@ import {
   ERROR_LOGIN,
   CLEAR_AUTH,
   USER_LOGOUT,
+  GET_ME,
 } from '../type';
 
 const initalState = {
   isAuthenticated: false,
   token: '',
   error: '',
+  info: {},
 };
 
 const authReducer = (state = initalState, action) => {
@@ -37,7 +39,11 @@ const authReducer = (state = initalState, action) => {
         ...state,
         error: '',
       };
-
+    case GET_ME:
+      return {
+        ...state,
+        info: action.payload,
+      };
     default:
       return state;
   }

@@ -35,7 +35,6 @@ function AllTasks() {
       dispatch(getAllTasks());
     }
   }, [dispatch, filterState]);
-  console.log(filterState);
   return (
     <>
       <div className={style.allTasks}>
@@ -69,12 +68,14 @@ function AllTasks() {
               return <TaskCard task={task} />;
             })
           ) : (
-            <NotFound />
+            <NotFound styles={notFoundStyles} />
           )}
         </div>
       </div>
     </>
   );
 }
-
+const notFoundStyles = {
+  marginTop: '7rem',
+};
 export default AllTasks;
