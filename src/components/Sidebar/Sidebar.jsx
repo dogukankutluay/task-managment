@@ -18,8 +18,13 @@ import {
 } from '../../redux/actions/popupsAction';
 import { languageAction } from '../../redux/actions/languageAction';
 import { useHistory } from 'react-router';
-import { taskCardUserProfile } from '../../redux/actions/popupsAction';
+import {
+  taskCardUserProfile,
+  clearAllPopup,
+} from '../../redux/actions/popupsAction';
 import { getMe } from '../../redux/actions/authAction';
+import dummyfoto1 from '../../assets/img/dumy-1.jpg';
+import dummyfoto2 from '../../assets/img/dumy-2.jpg';
 const Sidebar = () => {
   const history = useHistory();
   let location = history.location.pathname.split('/')[1];
@@ -34,11 +39,9 @@ const Sidebar = () => {
     dispatch(taskCardUserProfile(value));
   const defaultIconColor = `rgba(194, 194, 194, 0.748)`;
   const activeIconColor = `#0E71BF`;
-  console.log('get me', getMeState);
-  let temporaryImage1 =
-    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e';
-  let temporaryImage2 =
-    'https://images.unsplash.com/photo-1544005313-94ddf0286df2';
+
+  let temporaryImage1 = dummyfoto1;
+  let temporaryImage2 = dummyfoto2;
   useEffect(() => {
     dispatch(getMe());
   }, [dispatch]);
@@ -66,7 +69,11 @@ const Sidebar = () => {
       <ul>
         {collections.map(({ icon: Icon, href, name, text }) => {
           return (
-            <li key={name}>
+            <li
+              onClick={() => {
+                dispatch(clearAllPopup());
+              }}
+              key={name}>
               <Link to={href}>
                 <Icon
                   color={

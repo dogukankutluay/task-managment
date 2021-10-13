@@ -11,8 +11,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 100;
-
+  z-index: 1;
   .head {
     display: flex;
     width: 100%;
@@ -81,6 +80,9 @@
   }
 }
 .taskCardDetail {
+  height: 100%;
+  width: 100%;
+
   font-family: $--gilroyBold;
   margin-top: 1rem;
   .title,
@@ -109,6 +111,9 @@
     width: 100%;
     h1 {
       width: 100%;
+      word-wrap: break-word;
+      padding-right: 1rem !important;
+      box-sizing: border-box;
     }
     label {
       margin: 0;
@@ -322,11 +327,18 @@
 .shadowBox {
   width: 100vw;
   height: 100vh;
-  z-index: 99;
   position: fixed;
   top: 0;
   left: 0;
   background: rgba($color: $--primary-light-color, $alpha: 0.4);
+}
+@media screen and (max-width: 1200px) {
+  .shadowBox {
+    z-index: 999;
+  }
+  .popupWrapper {
+    z-index: 1000;
+  }
 }
 @media screen and (max-width: 900px) {
   .popupWrapper {
@@ -334,10 +346,17 @@
   }
 }
 @media screen and (max-width: 600px) {
+  .shadowBox {
+    z-index: 999;
+  }
   .popupWrapper {
+    z-index: 1000;
     width: 400px !important;
   }
   .taskCardDetail {
+    height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
     .bottomWrapper {
       flex-direction: column;
 

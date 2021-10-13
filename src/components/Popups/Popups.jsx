@@ -21,7 +21,8 @@ import { DefaultInput, DefaultTextarea } from '../Inputs/Inputs';
 import { DefaultDropDown } from '../DropDowns/DropDowns';
 import { createTask } from '../../redux/actions/createTaskAction';
 import { TaskDepartmentDatas } from '../../collections/collections';
-
+import dummyfoto1 from '../../assets/img/dumy-1.jpg';
+import dummyfoto2 from '../../assets/img/dumy-2.jpg';
 const PopupWrapper = props => {
   return (
     <>
@@ -133,10 +134,8 @@ const TaskCardDetail = ({ popupStyles, popupCloseClick }) => {
 
   const _deleteTask = () => dispatch(deleteTask(taskId, popupCloseClick));
   const _editTask = () => dispatch(editTask(taskId, updateTask));
-  let temporaryImage2 =
-    'https://images.unsplash.com/photo-1544005313-94ddf0286df2';
-  let temporaryImage1 =
-    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e';
+  let temporaryImage2 = dummyfoto2;
+  let temporaryImage1 = dummyfoto1;
   useEffect(() => {
     dispatch(getOneTask(taskId, setUpdateTask));
   }, [dispatch, taskId]);
@@ -279,7 +278,6 @@ const TaskCreatePopup = ({ popupStyles, popupCloseClick }) => {
                 setCreateTaskState({ ...createTaskState, title: value })
               }
             />
-
             <DefaultTextarea
               title={PopupsL.taskCreate.description.text[languageState]}
               placeholder={
@@ -289,7 +287,6 @@ const TaskCreatePopup = ({ popupStyles, popupCloseClick }) => {
                 setCreateTaskState({ ...createTaskState, description: value })
               }
             />
-
             <DefaultDropDown
               onChange={value =>
                 setCreateTaskState({

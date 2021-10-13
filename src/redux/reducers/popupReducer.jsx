@@ -4,6 +4,7 @@ import {
   TASK_CARD_USER_PROFILE,
   TASK_CARD_DETAIL,
   TASK_CREATE,
+  CLEAR_ALL_POPUP,
 } from './../type';
 const initialState = {
   logout: false,
@@ -38,6 +39,14 @@ const popupReducer = (state = initialState, action) => {
       return {
         ...state,
         taskCreate: action.payload,
+      };
+    case CLEAR_ALL_POPUP:
+      return {
+        ...state,
+        logout: false,
+        taskCardUserProfile: { popup: false, items: {} },
+        taskCardDetail: { popup: false, id: '' },
+        taskCreate: false,
       };
 
     default:

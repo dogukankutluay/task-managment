@@ -27,6 +27,8 @@ export const FILTER_ALL_TASKS = 'FILTER_ALL_TASKS';
 
 export const TASK_CARD_DETAIL = 'TASK_CARD_DETAIL';
 
+export const CLEAR_ALL_POPUP = 'CLEAR_ALL_POPUP';
+
 export const SEARCH_TASK = 'SEARCH_TASK';
 
 export const SPLICE_ONE_TASK = 'SPLICE_ONE_TASK';

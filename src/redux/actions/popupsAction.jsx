@@ -4,6 +4,7 @@ import {
   TASK_CARD_USER_PROFILE,
   TASK_CARD_DETAIL,
   TASK_CREATE,
+  CLEAR_ALL_POPUP,
 } from '../type';
 
 export const logoutPopup = payload => {
@@ -33,6 +34,12 @@ export const taskCardDetail = payload => {
 export const taskCreate = payload => {
   return {
     type: TASK_CREATE,
+    payload: payload,
+  };
+};
+export const clearAllPopup = payload => {
+  return {
+    type: CLEAR_ALL_POPUP,
     payload: payload,
   };
 };

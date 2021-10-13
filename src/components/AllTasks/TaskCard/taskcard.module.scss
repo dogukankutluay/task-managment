@@ -54,8 +54,11 @@
     width: 100%;
     h1 {
       color: $--default-head-text-color;
+      word-wrap: break-word;
     }
     p {
+      word-wrap: break-word;
+
       color: $--default-text-color;
     }
     .top,
@@ -170,6 +173,7 @@
     }
   }
 }
+
 @media screen and (max-width: 1200px) {
   .top {
     div {

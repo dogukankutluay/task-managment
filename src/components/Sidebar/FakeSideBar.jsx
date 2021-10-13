@@ -1,8 +1,12 @@
 import React from 'react';
 import style from './sidebar.module.scss';
 import collections from './sideBarCollections';
-import { LogOutIcon, HamburgerMenu } from '../../assets/icon/index';
-import { sideBarHamburger } from '../../redux/actions/popupsAction';
+import {
+  LogOutIcon,
+  HamburgerMenu,
+  CreateTaskIcon,
+} from '../../assets/icon/index';
+import { sideBarHamburger, taskCreate } from '../../redux/actions/popupsAction';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router';
@@ -10,6 +14,8 @@ const FakeSideBar = () => {
   const history = useHistory();
   let location = history.location.pathname.split('/')[1];
   const dispatch = useDispatch();
+  const _clickTaskCreate = () => dispatch(taskCreate(true));
+
   const _clickHamburgerMenu = value => dispatch(sideBarHamburger(value));
   const defaultIconColor = `rgba(194, 194, 194, 0.748)`;
   const activeIconColor = `#0E71BF`;
@@ -36,6 +42,9 @@ const FakeSideBar = () => {
             </li>
           );
         })}
+        <li style={liStyles} onClick={_clickTaskCreate}>
+          <CreateTaskIcon color={defaultIconColor} />
+        </li>
         <li style={liStyles}>
           <LogOutIcon color={defaultIconColor} />
         </li>
@@ -46,5 +55,6 @@ const FakeSideBar = () => {
 const liStyles = {
   display: 'flex',
   justifyContent: 'center',
+  cursor: 'pointer',
 };
 export default FakeSideBar;
