@@ -1,4 +1,6 @@
-export const BaseUrl = 'http://localhost:5000';
+export const heroku = 'https://task-managment-api.herokuapp.com';
+export const local = 'http://localhost:5000';
+export const BaseUrl = heroku;
 export const ApiConfig = {
   user: {
     login: '/api/auth/login',
