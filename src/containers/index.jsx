@@ -1,5 +1,4 @@
-export { default as Home } from './Home/Home';
-export { default as  AllTasks} from './AllTasks/AllTasks';
+export { default as AllTasks } from './AllTasks/AllTasks';
 export { default as MyDepartmantTasks } from './MyDepartmantTasks/MyDepartmantTasks';
 export { default as MyTasks } from './MyTasks/MyTasks';
 export { default as Login } from './Login/Login';
