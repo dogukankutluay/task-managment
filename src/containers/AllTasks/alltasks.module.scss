@@ -1,0 +1,65 @@
+@import '../../assets/style/variables.module.scss';
+
+.allTasks {
+  padding-top: 120px;
+  width: 95%;
+  .allTasksWrapper {
+    width: 100%;
+    .filterHead {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+      padding: 0.2rem 0rem;
+      box-sizing: border-box;
+      .filterHeadWrapper {
+        display: flex;
+        width: 50%;
+        height: 35px;
+        select {
+          border: 1px solid rgba(128, 128, 128, 0.405);
+          margin-left: 1rem;
+          padding-left: 0.5rem;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .filterHeadWrapper {
+    width: 100% !important;
+    box-sizing: border-box;
+    select {
+      padding: 5px 0px;
+      justify-content: flex-start;
+      width: 100% !important;
+      text-align: start;
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  .filterHeadWrapper {
+    width: 100% !important;
+    flex-direction: column;
+    height: 100% !important;
+    select {
+      margin: 0 !important;
+      padding: 7px 0px;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .filterHeadWrapper {
+    width: 100% !important;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100% !important;
+    select {
+      margin: 0 !important;
+      padding: 7px 0px;
+      justify-content: flex-start;
+      width: 100% !important;
+      text-align: start;
+    }
+  }
+}

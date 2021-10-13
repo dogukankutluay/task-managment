@@ -1,0 +1,377 @@
+@import '../../assets/style/variables.module.scss';
+
+.popupWrapper {
+  width: 800px;
+  background: white;
+  box-shadow: 2px 2px 2px rgba(7, 6, 6, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+
+  .head {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    h2 {
+      color: $--secondary-color;
+      font-size: 18px;
+    }
+
+    div {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      right: 20px;
+
+      button {
+        margin-bottom: 10px;
+        background: transparent;
+      }
+    }
+  }
+}
+.takCardUserProfileWrapper {
+  height: 100px;
+  width: 100%;
+  background-color: #eef2f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+  margin-top: 1rem;
+  img {
+    margin-top: 100px;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 5px solid white;
+  }
+}
+.taskCardUserProfileAbout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  h1 {
+    font-family: $--gilroySemiBold;
+    color: $--default-text-color;
+    align-self: center;
+  }
+  div {
+    padding: 1rem;
+    .box {
+      width: 100%;
+      h1 {
+        font-family: $--gilroyBold;
+        color: $--default-head-text-color;
+      }
+      p {
+        font-family: $--gilroyMedium;
+        color: $--default-text-color;
+        font-size: 14px;
+        margin-top: 0.2rem;
+      }
+    }
+  }
+}
+.taskCardDetail {
+  font-family: $--gilroyBold;
+  margin-top: 1rem;
+  .title,
+  .description,
+  .logs {
+    margin-bottom: 2rem;
+  }
+  .title,
+  .description,
+  .logs {
+    display: flex;
+    width: 100%;
+    svg {
+      width: 20px;
+      margin-right: 1rem;
+      path {
+        fill: grey;
+      }
+    }
+    h1 {
+      color: $--default-head-text-color;
+      font-size: 17px;
+    }
+  }
+  .title {
+    width: 100%;
+    h1 {
+      width: 100%;
+    }
+    label {
+      margin: 0;
+      input {
+        margin-top: -0.5rem;
+        color: $--default-head-text-color;
+        font-size: 17px;
+        font-family: $--gilroyBold;
+      }
+    }
+  }
+  .description,
+  .logs {
+    h1 {
+      font-size: 16px;
+      font-family: $--gilroySemiBold;
+    }
+  }
+  .description {
+    svg {
+      width: 22px;
+      margin-right: 1rem;
+      path {
+        fill: grey;
+      }
+    }
+    .descriptionText {
+      width: 100%;
+
+      p {
+        border-radius: 5px;
+        padding: 1rem 0.5rem;
+        box-sizing: border-box;
+        margin-top: 1rem;
+        background-color: rgba(128, 128, 128, 0.097);
+        font-size: 15px;
+        font-weight: 500;
+        font-family: $--gilroyMedium;
+        color: $--default-head-text-color;
+        word-wrap: break-word;
+      }
+    }
+  }
+  .logs {
+    justify-content: start !important;
+    width: 50%;
+    height: 100%;
+    .logsContainer {
+      width: 100%;
+      .logsWrapper {
+        margin-top: 0.5rem;
+        height: 150px;
+        overflow-y: scroll;
+        width: 100%;
+        .logsBox {
+          display: flex;
+          margin-top: 1.2rem;
+          img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+          }
+          .logsInfos {
+            .infoHead {
+              display: flex;
+              align-items: center;
+              h2 {
+                margin-right: 0.5rem;
+                font-family: $--gilroyBold;
+                font-size: 14px;
+              }
+              p {
+                font-size: 13px;
+                color: $--default-text-color;
+                font-family: $--gilroyBold;
+              }
+            }
+            .infoBottom {
+              margin-top: 0.5rem;
+              h3 {
+                font-size: 13px;
+                font-weight: 100;
+                font-family: $--gilroySemiBold;
+                color: $--default-text-color;
+              }
+            }
+          }
+        }
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        background: rgba(216, 216, 216, 0.802);
+        border-radius: 10px;
+      }
+    }
+  }
+  .bottomWrapper {
+    display: flex;
+    .actionsAndInfos {
+      width: 50%;
+      height: 100%;
+      margin-top: 1rem;
+      margin-left: 1rem;
+      .actionBox {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        h1 {
+          width: 30%;
+          font-size: 15px;
+          font-family: $--gilroyBold;
+        }
+        p {
+          font-family: $--gilroySemiBold;
+          font-size: 14px;
+          color: $--default-text-color;
+        }
+
+        button {
+          width: 30%;
+          padding: 5px !important;
+          font-size: 13px;
+          margin-left: 4rem;
+          font-family: $--gilroyBlack;
+          background-image: linear-gradient(
+            to right,
+            $--default-color,
+            $--opacity-primary-color
+          );
+        }
+        p,
+        h1,
+        button {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+  .bottomActionBtns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    button {
+      width: 100px;
+      margin: 0px 3px;
+      font-size: 13px;
+      font-family: $--gilroyBlack;
+    }
+    button:first-child {
+      border: 1px solid rgba(163, 162, 162, 0.59);
+      color: $--default-text-color;
+    }
+    button:last-child {
+      background-image: linear-gradient(
+        to right,
+        $--default-color,
+        $--opacity-primary-color
+      );
+    }
+  }
+}
+.taskCreate {
+  width: 100%;
+  .taskCreateContainer {
+    width: 80%;
+    margin: auto;
+    h1 {
+      font-weight: 600;
+    }
+    label {
+      input {
+        margin-bottom: 1rem;
+        padding-right: 0.5rem;
+      }
+    }
+    textarea {
+      margin-bottom: 1rem;
+      padding-right: 0.5rem;
+      max-width: 400px;
+      max-height: 200px;
+      min-height: 100px;
+    }
+    select {
+      padding: 0.5rem 0rem;
+      padding-left: 0.5rem;
+    }
+    button {
+      margin: 1rem 0;
+      margin-bottom: 2rem;
+      font-size: 14px;
+      width: 70px;
+
+      font-family: $--gilroyBlack;
+      background-image: linear-gradient(
+        to right,
+        $--default-color,
+        $--opacity-primary-color
+      );
+    }
+  }
+}
+.shadowBox {
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba($color: $--primary-light-color, $alpha: 0.4);
+}
+@media screen and (max-width: 900px) {
+  .popupWrapper {
+    width: 600px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .popupWrapper {
+    width: 400px !important;
+  }
+  .taskCardDetail {
+    .bottomWrapper {
+      flex-direction: column;
+
+      .actionsAndInfos,
+      .logs {
+        width: 100%;
+        .logsWrapper {
+          .logsBox {
+            width: 100% !important;
+            justify-content: space-between;
+            .logsInfos {
+              width: 70%;
+            }
+          }
+        }
+      }
+      .actionBox {
+        justify-content: space-between;
+        p {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+  .taskCreate {
+    .taskCreateContainer {
+      select {
+        text-align: start !important;
+      }
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .popupWrapper {
+    width: 300px !important;
+  }
+}

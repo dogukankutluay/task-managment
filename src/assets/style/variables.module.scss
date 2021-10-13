@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+@font-face {
+  font-family: gilroyBlack;
+  src: url(../fonts/Gilroy-Black.eot);
+}
+@font-face {
+  font-family: gilroyBold;
+  src: url(../fonts/Gilroy-Bold.woff2);
+}
+@font-face {
+  font-family: gilroyMedium;
+  src: url(../fonts/Gilroy-Medium.woff2);
+}
+@font-face {
+  font-family: gilroySemiBold;
+  src: url(../fonts/Gilroy-SemiBold.woff2);
+}
+
+//fonst
+
+$--gilroyBlack: gilroyBlack, sans-serif;
+$--gilroyMedium: gilroyMedium, sans-serif;
+$--gilroyBold: gilroyBold, sans-serif;
+$--gilroySemiBold: gilroySemiBold, sans-serif;
+
+$--sidebar-backround: #ffffff;
+$--default-color: #0e71bf;
+$--primary-light-color: #c0c0c0;
+$--opacity-primary-color: #0e72bfbd;
+
+$--default-head-text-color: #161616dc;
+$--default-text-color: #5f5f5f;
+
+$--secondary-color: #daa335;
+$--dark-color: #292929;
+
+body {
+  font-family: gilroyMedium, sans-serif;
+}
+
+button {
+  cursor: pointer;
+}

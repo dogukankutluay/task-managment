@@ -1,0 +1,120 @@
+@import '../../assets/style/variables.module.scss';
+
+.sidebar {
+  background: $--sidebar-backround;
+  box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.083);
+  width: 180px;
+  height: 100vh;
+  position: fixed;
+  z-index: 1;
+  .logo {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    img {
+      width: 50%;
+      object-fit: fill;
+    }
+    span {
+      cursor: pointer;
+      svg {
+        align-self: center;
+        path {
+          // fill: rgba(194, 194, 194, 0.748);
+        }
+      }
+    }
+  }
+
+  ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    li {
+      width: 80%;
+      margin-bottom: 2rem;
+      div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        h1 {
+          width: 100%;
+          margin-left: 1rem;
+          font-weight: 500;
+          font-size: 13.5px;
+          color: rgba(111, 111, 111, 0.748);
+          text-align: start;
+        }
+
+        svg {
+          width: 25px;
+          path {
+            // fill: rgba(194, 194, 194, 0.748);
+          }
+        }
+      }
+
+      a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h1 {
+          width: 100%;
+          margin-left: 1rem;
+          font-weight: 500;
+          font-size: 13.5px;
+          text-align: start;
+          color: rgba(111, 111, 111, 0.748);
+        }
+        svg {
+          width: 25px;
+
+          path {
+            // fill: rgba(194, 194, 194, 0.748);
+          }
+        }
+        div {
+          svg {
+            width: 12px;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .sidebar {
+    width: 10%;
+    .logo {
+      img {
+        display: none;
+      }
+      span {
+        svg {
+          display: none;
+        }
+      }
+    }
+    ul {
+      li {
+        margin-left: 0.3rem;
+
+        div {
+          h1 {
+            display: none;
+          }
+        }
+        a {
+          h1 {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

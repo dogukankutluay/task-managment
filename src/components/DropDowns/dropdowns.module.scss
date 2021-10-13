@@ -1,0 +1,23 @@
+@import '../../assets/style/variables.module.scss';
+
+.select {
+  border: 1px solid rgba(232, 230, 230, 0.741);
+  padding: 0.2rem 0;
+  color: $--default-text-color;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.selectTitle {
+  font-size: 14px;
+  color: #535353;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+@media screen and (max-width: 600px) {
+  .select {
+    appearance: none;
+    text-align: center;
+  }
+}

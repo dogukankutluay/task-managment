@@ -1,0 +1,55 @@
+@import '../../assets/style/variables.module.scss';
+
+.wrapper {
+  width: 100%;
+  padding-left: 190px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: #ededed9c;
+  .header {
+    width: 100%;
+    box-sizing: border-box;
+    background: #ffffff;
+    position: absolute;
+    position: fixed;
+    box-shadow: 1px 0px 10px rgba(0, 0, 0, 0.083);
+    left: 0;
+    padding-left: 190px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 60px;
+    .headerContainer {
+      display: flex;
+      input {
+        box-sizing: border-box;
+        padding-right: 2rem;
+        padding-top: 0.1rem;
+      }
+    }
+    h2 {
+      font-weight: 500;
+      color: $--dark-color;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .wrapper {
+    padding-left: 50px;
+    .header {
+      padding-left: 65px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      h2 {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}

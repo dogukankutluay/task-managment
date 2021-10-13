@@ -1,0 +1,19 @@
+@import '../../assets/style/variables.module.scss';
+
+.button{
+    background-color: transparent;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+.whiteButton{
+    background-color: white;
+    color : $--sidebar-backround ;
+    padding: 15px;
+    font-size: 1.1em;
+    width: 200px;
+    border-radius: 5px;
+    margin-right: 20px;
+}

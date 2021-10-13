@@ -1,0 +1,54 @@
+import axios from 'axios';
+import {
+  SET_CURRENT_USER,
+  ERROR_LOGIN,
+  CLEAR_AUTH,
+  USER_LOGOUT,
+} from '../type';
+import { history } from '../../';
+
+import { ApiConfig, BaseUrl } from '../../constants/ApiConfig';
+export const loginUser =
+  ({ email, setLoading }) =>
+  dispatch => {
+    axios
+      .post(`${BaseUrl}${ApiConfig.user.login}`, { email })
+      .then(res => {
+        const token = res.data.payload.jwtToken;
+        localStorage.setItem('jwtToken', token);
+        dispatch(setCurrentUser(token));
+        setTimeout(() => {
+          setLoading(false);
+          history.push('/');
+          // history.go();
+        }, 1000);
+      })
+      .catch(err => {
+        setLoading(false);
+        dispatch(errorLogin(err.response?.data.message));
+      });
+  };
+export const setCurrentUser = decoded => {
+  return {
+    type: SET_CURRENT_USER,
+    payload: decoded,
+  };
+};
+
+export const errorLogin = payload => {
+  return {
+    type: ERROR_LOGIN,
+    payload: payload,
+  };
+};
+export const clearAuth = payload => {
+  return {
+    type: CLEAR_AUTH,
+    payload: payload,
+  };
+};
+export const logout = () => {
+  return {
+    type: USER_LOGOUT,
+  };
+};
