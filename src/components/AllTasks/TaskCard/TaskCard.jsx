@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   taskCardUserProfile,
   taskCardDetail,
+  alertPopup,
 } from '../../../redux/actions/popupsAction';
 import AssignedDepartmentReturn from './AssignedDepartmentReturn';
 import StatusReturn from './StatusReturn';
@@ -31,6 +32,18 @@ function TaskCard({ task }) {
   const _onClickHeadAction = actionType => {
     dispatch(statusChange(task.id, actionType));
     setHeadActionShow(false);
+    setTimeout(() => {
+      dispatch(
+        alertPopup({
+          type: '',
+          text: {
+            tr: '',
+            en: '',
+          },
+          show: false,
+        })
+      );
+    }, 2000);
   };
   let temporaryImage1 = dummyfoto1;
   let temporaryImage2 = dummyfoto2;

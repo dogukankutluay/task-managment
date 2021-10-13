@@ -5,6 +5,8 @@ import { getAllTasks } from './getAllTasksAction';
 import { getOneTask } from './getOneTaskAction';
 import { myDepartmentTasks } from './myDepartmantTasksAction';
 import { myTasks } from './myTasksAction';
+import { alertPopup } from './popupsAction';
+
 export const editTask = (id, body) => dispatch => {
   axios
     .put(`${BaseUrl}${ApiConfig.task.editTask}/${id}`, body, getToken())
@@ -14,9 +16,28 @@ export const editTask = (id, body) => dispatch => {
         dispatch(myTasks());
         dispatch(myDepartmentTasks());
         dispatch(getOneTask(id));
+        dispatch(
+          alertPopup({
+            type: 'success',
+            text: {
+              tr: 'Görev başarıyla güncellendi.',
+              en: 'Task successfully edited.',
+            },
+            show: true,
+          })
+        );
       }
     })
     .catch(err => {
-      console.log(err.response);
+      dispatch(
+        alertPopup({
+          type: 'error',
+          text: {
+            tr: 'İşlem Başarısız.',
+            en: 'Operation failed.',
+          },
+          show: true,
+        })
+      );
     });
 };

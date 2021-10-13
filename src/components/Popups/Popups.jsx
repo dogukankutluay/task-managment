@@ -132,9 +132,28 @@ const TaskCardDetail = ({ popupStyles, popupCloseClick }) => {
     description: '',
     title: '',
   });
-
-  const _deleteTask = () => dispatch(deleteTask(taskId, popupCloseClick));
-  const _editTask = () => dispatch(editTask(taskId, updateTask));
+  const clearAlertPopup = () => {
+    setTimeout(() => {
+      dispatch(
+        alertPopup({
+          type: '',
+          text: {
+            tr: '',
+            en: '',
+          },
+          show: false,
+        })
+      );
+    }, 2000);
+  };
+  const _deleteTask = () => {
+    dispatch(deleteTask(taskId, popupCloseClick));
+    clearAlertPopup();
+  };
+  const _editTask = () => {
+    dispatch(editTask(taskId, updateTask));
+    clearAlertPopup();
+  };
   let temporaryImage2 = dummyfoto2;
   let temporaryImage1 = dummyfoto1;
   useEffect(() => {
